@@ -1,0 +1,147 @@
+//font
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500;700&display=swap");
+//variables
+$primaryColor: #f35ca3;
+$secondaryColor: #aabde6;
+$tertiaryColor: #c5abdc;
+$textColor: #393c43;
+//mixin
+@mixin button {
+  color: white;
+  border-radius: 2em;
+  background-color: $primaryColor;
+  padding: 0.5em 2em;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 700;
+  border: 2px solid $primaryColor;
+    &:hover {
+      border: 2px solid $primaryColor;
+      background-color:transparent;
+      color: $primaryColor;
+    }
+  
+}
+//style
+body {
+  font-family: "Montserrat", sans-serif;
+  &::before{
+  content:'';
+  background-image: url(../image/background.png);
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: 60vmax;  
+    opacity: 0.8;
+    position: absolute;
+    z-index: -10;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    @media screen and (max-width:992px){
+      opacity: 0.4;
+    }
+    }
+}
+//navbar
+//--logo style--
+.custom-nav {
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    img {
+      width: 50px;
+    }
+    span {
+      display: inline-block;
+      color: $primaryColor;
+      font-weight: 700;
+    }
+  }
+  #navbarNav {
+    ul {
+      li {
+        
+        .nav-link {
+          color: $primaryColor;
+          font-weight: 500;
+          font-size: 1.3rem;
+          text-transform: uppercase;
+          margin-left: 2.2em;
+          &:hover {
+            color: darken($primaryColor, 10%);
+          }
+        }
+        .active {
+          font-weight: 700;}
+          .sign-up-button {
+            @include button;
+          }
+        }
+      }
+    }
+    @media screen and (max-width:992px){
+      margin-top:-2em;
+    
+      .navbar-brand{
+
+        img{
+          width: 30px;
+        }
+        span{
+          font-size: 0.7em;
+        }
+      }
+    }
+  }
+  .custom-section {
+    z-index: 10;
+    position: relative;
+    margin-top: 15em;
+    h1 {
+      color: $primaryColor;
+      font-weight: 700;
+      font-size: 5em;
+      white-space: nowrap;
+    }
+  h2 {
+    color: $secondaryColor;
+    font-weight: 500;
+    font-size: 3em;
+    line-height: 1em;
+  }
+  p {
+    font-size: 1.2em;
+    line-height: 1.5em;
+    margin-top: 2.5em;
+    color: $textColor;
+    margin-bottom: 2em;
+  }
+  a {
+    transition: 0.4s ease;
+    @include button;
+    font-size: 1.3em;   
+  }
+  @media screen and (max-width : 992px){
+    margin-top: 3em;
+    text-align: center;
+    h1,h2,p{
+      text-shadow: 1px 1px 2px rgba($textColor,0.3);
+    }
+    h2{
+      color:lighten($textColor,15%);
+    }
+    @media screen and (max-width:576px) {
+      
+      h1{font-size: 3em;
+      margin-top: -0.5em;}
+      h2{font-size: 2em;
+      }
+      p{font-size: 1em;
+      margin-top: 1em;}
+    }
+
+  }
+}
